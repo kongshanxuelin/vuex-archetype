@@ -1,6 +1,6 @@
-# vuex
+# Vue2原型项目
 
-> A Vue.js project
+> 基于状态管理的Vue最简原型项目（Vue2+VueRoute+Vuex+Axios+Webpack）+ 测试框架
 
 ## Build Setup
 
@@ -26,5 +26,3 @@ npm run e2e
 # run all tests
 npm test
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
