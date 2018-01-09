@@ -1,0 +1,197 @@
+*{margin:0;padding:0;}
+html,body,#app,.wrapper{
+    width:100%;
+    background:  #0a0f0e;
+
+}
+body{
+    font-family:"Helvetica Neue",Helvetica, "microsoft yahei", arial, STHeiTi, sans-serif;
+    color:#d0d0d0;
+}
+/* scroll */
+
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #172422;
+}
+
+
+/*定义滚动条轨道 内阴影+圆角*/
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #172422;
+}
+
+
+/*定义滑块 内阴影+圆角*/
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #136c5e;
+}
+
+::-webkit-scrollbar-corner {
+  background: #172422;
+}
+
+.code {
+    background-color: #193d37;
+    color: #ffebc8;
+    padding:4px;
+}
+
+a{
+  font-family: MicrosoftYaHei;
+  color:#ffebc8;
+  line-height: 14px;
+  text-decoration: none
+}
+.content{
+    background: none repeat scroll 0 0 #0a0f0e;
+    position: absolute;
+    left: 250px;
+    right: 0;
+    top: 70px;
+    bottom:0;
+    width: auto;
+    box-sizing: border-box;
+    padding:10px;
+    overflow-y: scroll;
+}
+.crumbs{
+    margin-bottom: 20px;
+}
+.pagination{
+    margin: 20px 0;
+    text-align: right;
+}
+.plugins-tips{
+    padding:20px 10px;
+    margin-bottom: 20px;
+}
+.el-button+.el-tooltip {
+    margin-left: 10px;
+}
+
+.el-table tr:hover{
+    background: #193d37;
+}
+.mgb20{
+    margin-bottom: 20px;
+}
+
+.move-enter-active,.move-leave-active{
+    transition: opacity .5s;
+}
+.move-enter,.move-leave{
+    opacity: 0;
+}
+/*BaseForm*/
+.form-box{
+    width:600px;
+}
+.form-box .line{
+    text-align: center;
+}
+.el-time-panel__content::after, .el-time-panel__content::before {
+    margin-top: -7px;
+}
+/*Readme*/
+.ms-doc .el-checkbox__input.is-disabled+.el-checkbox__label{
+    color: #333;
+    cursor: pointer;
+}
+/*Upload*/
+.pure-button{
+    width:150px;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    border-radius: 3px;
+}
+.g-core-image-corp-container .info-aside{
+    height:45px;
+}
+.el-upload--text {
+    background-color: #fff;
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    box-sizing: border-box;
+    width: 360px;
+    height: 180px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.el-upload--text .el-icon-upload {
+    font-size: 67px;
+    color: #97a8be;
+    margin: 40px 0 16px;
+    line-height: 50px;
+}
+.el-upload--text {
+    color: #97a8be;
+    font-size: 14px;
+    text-align: center;
+}
+.el-upload--text em {
+    font-style: normal;
+}
+/*VueEditor*/
+.ql-container{
+    min-height: 400px;
+}
+.ql-snow .ql-tooltip{
+    transform: translateX(117.5px) translateY(10px) !important;
+}
+.editor-btn{
+    margin-top: 20px;
+}
+.el-date-table td.disabled{
+    background-color: #4a4c4b;
+}
+
+.el-table__row--striped {
+    background-color: #00F;
+}
+
+.panel-header {
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  color: #8f9598;
+  background: #121a19;
+  padding-left: 5px;
+  margin: 5px 0px 0px 0px;
+}
+.panel-header-default {
+    color:#ffebc8;
+
+  border-radius: 4px;
+  background: #172422;
+}
+.panel-header-normal {
+    color:#ffebc8;
+
+  border-radius: 4px;
+  background: #2d5d96;
+}
+.panel-header-important {
+    color:#ffebc8;
+
+  border-radius: 4px;
+  background: #b03030;
+}
+.panel-header-solution {
+  border-radius: 4px;
+  color:#ffebc8;
+  background: #608e2d;
+}
+
