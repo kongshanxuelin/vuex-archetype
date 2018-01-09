@@ -33,6 +33,7 @@ module.exports = {
     'space-before-function-paren': 0,
     'space-before-blocks': 0,
     'eqeqeq': 0,
+    'object-property-newline': 0,
     'no-unused-vars': 0,
     'no-useless-escape': 0,
     'no-unneeded-ternary': 0,

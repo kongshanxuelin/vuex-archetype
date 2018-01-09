@@ -19,7 +19,7 @@
         <el-menu-item index="5-2">异地数据库同步</el-menu-item>
         <el-menu-item index="5-3">异地文件同步</el-menu-item>
       </el-submenu>
-      <el-menu-item style="float:right" v-if="!isLogin" index="1"><a href="#">登录</a></el-menu-item>
+      <el-menu-item style="float:right" v-if="!isLogin" index="1"><a href="#">注册/登录</a></el-menu-item>
       <el-menu-item style="float:right" v-if="isLogin" index="3"><a href="#">{{nickname}}, 退出</a></el-menu-item>
       <el-menu-item style="float:right" v-if="isLogin" index="100">控制台</el-menu-item>
     </el-menu>
@@ -39,7 +39,7 @@
         </template>
         <div style="margin:0px 0px;">
           <el-row :gutter="5" type="flex" justify="start">
-            <el-col :span="4" v-for="(o, index) in cloudAPIItems" :key="o.id" style="margin-top:5px">
+            <el-col :span="6" v-for="(o, index) in cloudAPIItems" :key="o.id" style="margin-top:5px">
               <el-card :body-style="{ padding: '0px',height:'360px' }">
                 <div :class="'navheader  navheader-' + o.cls">{{o.title}}</div>
                 <img :src="o.icon" class="image">
@@ -47,7 +47,8 @@
                   <span class="api-desc" v-html="o.d"></span>
                   <div class="bottom clearfix">
                     <el-button type="text" class="button">查看文档</el-button>
-                    <el-button :type="o.sts=='1'?'danger':'primary'" size="mini" round class="button">{{o.sts=='1'?'移除':'安装'}}</el-button>
+                    <el-button type="text" @click="sendFeedback" class="button">意见反馈(2)</el-button>
+                    <el-button type="text" size="mini" class="button">{{o.sts=='1'?'移除':'安装'}}</el-button>
                   </div>
                 </div>
               </el-card>
@@ -61,7 +62,7 @@
         </template>
         <div>
           <el-row :gutter="5" type="flex" justify="start">
-            <el-col :span="4" v-for="(o, index) in cloudSolutionItems" :key="o.id" style="margin-top:5px">
+            <el-col :span="6" v-for="(o, index) in cloudSolutionItems" :key="o.id" style="margin-top:5px">
               <el-card :body-style="{ padding: '0px',height:'360px' }">
                 <div :class="'navheader  navheader-' + o.cls">{{o.title}}</div>
                 <img :src="o.icon" class="image">
@@ -69,7 +70,8 @@
                   <span class="api-desc" v-html="o.d"></span>
                   <div class="bottom clearfix">
                     <el-button type="text" class="button">查看文档</el-button>
-                    <el-button :type="o.sts=='1'?'danger':'primary'" size="mini" round class="button">{{o.sts=='1'?'移除':'安装'}}</el-button>
+                    <el-button type="text" @click="sendFeedback" class="button">意见反馈(2)</el-button>
+                    <el-button type="text" size="mini" class="button">{{o.sts=='1'?'移除':'安装'}}</el-button>
                   </div>
                 </div>
               </el-card>
@@ -86,6 +88,19 @@
         <p>浙ICP备16036695号</p>
       </div>
   </el-footer>
+
+  <el-dialog title="意见反馈" width="350px" :visible.sync="dialogFeedback">
+    <el-form :model="form" :label-position="'top'">
+      <el-form-item label="输入您的意见和反馈：">
+        <textarea placeholder="输入您的宝贵意见..." class="textarea" rows="5" style="width:98%"></textarea>
+      </el-form-item>
+    </el-form>
+    <div slot="footer" class="dialog-footer">
+      <el-button @click="dialogFeedback = false">取 消</el-button>
+      <el-button type="primary" @click="dialogFeedback = false">确 定</el-button>
+    </div>
+  </el-dialog>
+
 </el-container>
 </template>
 
@@ -95,6 +110,7 @@ export default {
   name: 'Index',
   data () {
     return {
+      dialogFeedback:false,
       list: [],
       activeName: ['1','2'],
       nickname:'',
@@ -129,6 +145,9 @@ export default {
       }else{
         this.$router.push({path: '/' + id});
       }
+    },
+    sendFeedback(item) {
+      this.dialogFeedback = true;
     },
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
@@ -246,5 +265,6 @@ export default {
     text-align: center;
     line-height: 30px;
     color:#535353;
+    font-size:12px;
   }
 </style>

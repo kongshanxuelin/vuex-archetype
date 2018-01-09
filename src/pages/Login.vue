@@ -2,18 +2,39 @@
     <div class="login-wrap">
         <div class="ms-title">OpenSumslack Cloud控制台</div>
         <div class="ms-login">
-            <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
-                <el-form-item prop="username">
-                    <el-input v-model="ruleForm.username" placeholder="username"></el-input>
-                </el-form-item>
-                <el-form-item prop="password">
-                    <el-input type="password" placeholder="password" v-model="ruleForm.password" @keyup.enter.native="submitForm('ruleForm')"></el-input>
-                </el-form-item>
-                <div class="login-btn">
-                    <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+            
+                <div v-if="!isReg">
+                    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="80px" class="demo-ruleForm">
+                        <el-form-item label="手机号" prop="username">
+                            <el-input v-model="ruleForm.username" placeholder="username"></el-input>
+                        </el-form-item>
+                        <el-form-item label="密码" prop="password">
+                            <el-input type="password" placeholder="password" v-model="ruleForm.password" @keyup.enter.native="submitForm('ruleForm')"></el-input>
+                        </el-form-item>
+                    </el-form>
+                    <div class="login-btn">
+                        <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+                    </div>
+                    <p style="font-size:12px;text-align:center;line-height:30px;color:#999;">Tips : 如果还没有账号，<a class="color-red" style="font-weight:bold" href="#" @click="switchReg('reg')">点击这里注册</a></p>
                 </div>
-                <p style="font-size:12px;line-height:30px;color:#999;">Tips : 请输入正确的用户名和密码</p>
-            </el-form>
+                <div v-else>
+                    <el-form :model="regForm" :rules="rules" ref="regForm" label-width="80px" class="demo-ruleForm">
+                        <el-form-item label="手机号" prop="username">
+                            <el-input v-model="regForm.username" placeholder="username"></el-input>
+                        </el-form-item>
+                        <el-form-item label="密码" prop="password">
+                            <el-input type="password" placeholder="password" v-model="regForm.password"></el-input>
+                        </el-form-item>
+                        <el-form-item label="确认密码" prop="password2">
+                            <el-input type="password" placeholder="password2" v-model="regForm.password2"></el-input>
+                        </el-form-item>
+                    </el-form>
+                    <div class="login-btn">
+                        <el-button type="primary" @click="submitForm('regForm')">注册账号</el-button>
+                    </div>
+                    <p style="font-size:12px;text-align:center;line-height:30px;color:#999;">Tips : 如果已有账号，<a class="color-red" style="font-weight:bold" href="#" @click="switchReg('login')">点击这里登录</a></p>
+                </div>
+            
         </div>
     </div>
 </template>
@@ -23,13 +44,19 @@
     export default {
         data: function(){
             return {
+                isReg : false,
                 ruleForm: {
                     username: '',
                     password: ''
                 },
+                regForm : {
+                    username: '',
+                    password: '',
+                    password2:''
+                },
                 rules: {
                     username: [
-                        { required: true, message: '请输入用户名', trigger: 'blur' }
+                        { required: true, message: '请输入手机号', trigger: 'blur' }
                     ],
                     password: [
                         { required: true, message: '请输入密码', trigger: 'blur' }
@@ -41,6 +68,13 @@
             ...mapActions([
                 'login'
             ]),
+            switchReg(isReg){
+                if(isReg === 'reg'){
+                    this.isReg = true;
+                }else{
+                    this.isReg = false;
+                }
+            },
             submitForm(formName) {
                 const self = this;
                 self.$refs[formName].validate((valid) => {
@@ -70,7 +104,6 @@
 
 <style scoped>
     .login-wrap{
-        position: relative;
         width:100%;
         height:100%;
     }
@@ -82,18 +115,18 @@
         text-align: center;
         font-size:30px;
         color: #fff;
-
     }
     .ms-login{
         position: absolute;
         left:50%;
         top:50%;
         width:300px;
-        height:160px;
+
         margin:-150px 0 0 -190px;
         padding:40px;
         border-radius: 5px;
-        background: #fff;
+        background: #0a0f0e;
+        border:1px solid #193d37;
     }
     .login-btn{
         text-align: center;

@@ -195,3 +195,18 @@ a{
   background: #608e2d;
 }
 
+.color-red {
+    color:#ff3b54;
+}
+.color-blue {
+    color:#43adff;
+}
+.color-gray {
+    color:#8f9598;
+}
+.textarea {
+    background:#0a0f0e;
+    border:1px solid #193d37;
+    padding:4px;
+    color:#f9c152;
+}
